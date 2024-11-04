@@ -1,0 +1,548 @@
+[
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": true,
+        "internalType": "address",
+        "name": "storageProvider",
+        "type": "address"
+      }
+    ],
+    "name": "CancelSwapIn",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": true,
+        "internalType": "address",
+        "name": "storageProvider",
+        "type": "address"
+      },
+      {
+        "indexed": true,
+        "internalType": "address",
+        "name": "operator",
+        "type": "address"
+      }
+    ],
+    "name": "CompleteSPExit",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": true,
+        "internalType": "address",
+        "name": "storageProvider",
+        "type": "address"
+      }
+    ],
+    "name": "CompleteSwapIn",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": true,
+        "internalType": "address",
+        "name": "storageProvider",
+        "type": "address"
+      },
+      {
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "familyId",
+        "type": "uint256"
+      }
+    ],
+    "name": "CreateGlobalVirtualGroup",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": true,
+        "internalType": "address",
+        "name": "storageProvider",
+        "type": "address"
+      }
+    ],
+    "name": "DeleteGlobalVirtualGroup",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": true,
+        "internalType": "address",
+        "name": "storageProvider",
+        "type": "address"
+      }
+    ],
+    "name": "Deposit",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": true,
+        "internalType": "address",
+        "name": "storageProvider",
+        "type": "address"
+      }
+    ],
+    "name": "ReserveSwapIn",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": true,
+        "internalType": "address",
+        "name": "storageProvider",
+        "type": "address"
+      }
+    ],
+    "name": "SPExit",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": true,
+        "internalType": "address",
+        "name": "storageProvider",
+        "type": "address"
+      },
+      {
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "familyId",
+        "type": "uint256"
+      }
+    ],
+    "name": "SwapOut",
+    "type": "event"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint32",
+        "name": "gvgFamilyId",
+        "type": "uint32"
+      },
+      {
+        "internalType": "uint32",
+        "name": "gvgId",
+        "type": "uint32"
+      }
+    ],
+    "name": "cancelSwapIn",
+    "outputs": [
+      {
+        "internalType": "bool",
+        "name": "success",
+        "type": "bool"
+      }
+    ],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "string",
+        "name": "storageProvider",
+        "type": "string"
+      },
+      {
+        "internalType": "string",
+        "name": "operator",
+        "type": "string"
+      }
+    ],
+    "name": "completeSPExit",
+    "outputs": [
+      {
+        "internalType": "bool",
+        "name": "success",
+        "type": "bool"
+      }
+    ],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint32",
+        "name": "gvgFamilyId",
+        "type": "uint32"
+      },
+      {
+        "internalType": "uint32",
+        "name": "gvgId",
+        "type": "uint32"
+      }
+    ],
+    "name": "completeSwapIn",
+    "outputs": [
+      {
+        "internalType": "bool",
+        "name": "success",
+        "type": "bool"
+      }
+    ],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint32",
+        "name": "gvgFamilyId",
+        "type": "uint32"
+      },
+      {
+        "internalType": "uint32[]",
+        "name": "gvgIds",
+        "type": "uint32[]"
+      }
+    ],
+    "name": "completeSwapOut",
+    "outputs": [
+      {
+        "internalType": "bool",
+        "name": "success",
+        "type": "bool"
+      }
+    ],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint32",
+        "name": "familyId",
+        "type": "uint32"
+      },
+      {
+        "internalType": "uint32[]",
+        "name": "secondarySpIds",
+        "type": "uint32[]"
+      },
+      {
+        "components": [
+          {
+            "internalType": "string",
+            "name": "denom",
+            "type": "string"
+          },
+          {
+            "internalType": "uint256",
+            "name": "amount",
+            "type": "uint256"
+          }
+        ],
+        "internalType": "struct Coin",
+        "name": "deposit",
+        "type": "tuple"
+      }
+    ],
+    "name": "createGlobalVirtualGroup",
+    "outputs": [
+      {
+        "internalType": "bool",
+        "name": "success",
+        "type": "bool"
+      }
+    ],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint32",
+        "name": "gvgId",
+        "type": "uint32"
+      }
+    ],
+    "name": "deleteGlobalVirtualGroup",
+    "outputs": [
+      {
+        "internalType": "bool",
+        "name": "success",
+        "type": "bool"
+      }
+    ],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint32",
+        "name": "gvgId",
+        "type": "uint32"
+      },
+      {
+        "components": [
+          {
+            "internalType": "string",
+            "name": "denom",
+            "type": "string"
+          },
+          {
+            "internalType": "uint256",
+            "name": "amount",
+            "type": "uint256"
+          }
+        ],
+        "internalType": "struct Coin",
+        "name": "deposit",
+        "type": "tuple"
+      }
+    ],
+    "name": "deposit",
+    "outputs": [
+      {
+        "internalType": "bool",
+        "name": "success",
+        "type": "bool"
+      }
+    ],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "components": [
+          {
+            "internalType": "bytes",
+            "name": "key",
+            "type": "bytes"
+          },
+          {
+            "internalType": "uint64",
+            "name": "offset",
+            "type": "uint64"
+          },
+          {
+            "internalType": "uint64",
+            "name": "limit",
+            "type": "uint64"
+          },
+          {
+            "internalType": "bool",
+            "name": "countTotal",
+            "type": "bool"
+          },
+          {
+            "internalType": "bool",
+            "name": "reverse",
+            "type": "bool"
+          }
+        ],
+        "internalType": "struct PageRequest",
+        "name": "pagination",
+        "type": "tuple"
+      }
+    ],
+    "name": "globalVirtualGroupFamilies",
+    "outputs": [
+      {
+        "components": [
+          {
+            "internalType": "uint32",
+            "name": "id",
+            "type": "uint32"
+          },
+          {
+            "internalType": "uint32",
+            "name": "primarySpId",
+            "type": "uint32"
+          },
+          {
+            "internalType": "uint32[]",
+            "name": "globalVirtualGroupIds",
+            "type": "uint32[]"
+          },
+          {
+            "internalType": "address",
+            "name": "virtualPaymentAddress",
+            "type": "address"
+          }
+        ],
+        "internalType": "struct GlobalVirtualGroupFamily[]",
+        "name": "gvgFamilies",
+        "type": "tuple[]"
+      },
+      {
+        "components": [
+          {
+            "internalType": "bytes",
+            "name": "nextKey",
+            "type": "bytes"
+          },
+          {
+            "internalType": "uint64",
+            "name": "total",
+            "type": "uint64"
+          }
+        ],
+        "internalType": "struct PageResponse",
+        "name": "pageResponse",
+        "type": "tuple"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint32",
+        "name": "familyId",
+        "type": "uint32"
+      }
+    ],
+    "name": "globalVirtualGroupFamily",
+    "outputs": [
+      {
+        "components": [
+          {
+            "internalType": "uint32",
+            "name": "id",
+            "type": "uint32"
+          },
+          {
+            "internalType": "uint32",
+            "name": "primarySpId",
+            "type": "uint32"
+          },
+          {
+            "internalType": "uint32[]",
+            "name": "globalVirtualGroupIds",
+            "type": "uint32[]"
+          },
+          {
+            "internalType": "address",
+            "name": "virtualPaymentAddress",
+            "type": "address"
+          }
+        ],
+        "internalType": "struct GlobalVirtualGroupFamily",
+        "name": "gvgfamily",
+        "type": "tuple"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint32",
+        "name": "targetSpId",
+        "type": "uint32"
+      },
+      {
+        "internalType": "uint32",
+        "name": "gvgFamilyId",
+        "type": "uint32"
+      },
+      {
+        "internalType": "uint32",
+        "name": "gvgId",
+        "type": "uint32"
+      }
+    ],
+    "name": "reserveSwapIn",
+    "outputs": [
+      {
+        "internalType": "bool",
+        "name": "success",
+        "type": "bool"
+      }
+    ],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "spExit",
+    "outputs": [
+      {
+        "internalType": "bool",
+        "name": "success",
+        "type": "bool"
+      }
+    ],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint32",
+        "name": "gvgFamilyId",
+        "type": "uint32"
+      },
+      {
+        "internalType": "uint32[]",
+        "name": "gvgIds",
+        "type": "uint32[]"
+      },
+      {
+        "internalType": "uint32",
+        "name": "successorSpId",
+        "type": "uint32"
+      },
+      {
+        "components": [
+          {
+            "internalType": "uint64",
+            "name": "expiredHeight",
+            "type": "uint64"
+          },
+          {
+            "internalType": "uint32",
+            "name": "globalVirtualGroupFamilyId",
+            "type": "uint32"
+          },
+          {
+            "internalType": "bytes",
+            "name": "sig",
+            "type": "bytes"
+          }
+        ],
+        "internalType": "struct Approval",
+        "name": "successorSpApproval",
+        "type": "tuple"
+      }
+    ],
+    "name": "swapOut",
+    "outputs": [
+      {
+        "internalType": "bool",
+        "name": "success",
+        "type": "bool"
+      }
+    ],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  }
+]
