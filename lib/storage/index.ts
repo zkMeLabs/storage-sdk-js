@@ -167,7 +167,7 @@ export class Storage {
         bucketInfo.globalVirtualGroupFamilyId
       )
       const spList = await this.getStorageProviders()
-      return spList.filter((sp) => sp.id === gvgfamily.id)[0].endpoint;
+      return spList.filter((sp) => sp.id === gvgfamily.primarySpId)[0].endpoint;
     } catch (error: any) {
       const errMsg = formatErrorMessage(error)
       if (errMsg.includes(ExceptionMessage.NoSuchBucket)) {
