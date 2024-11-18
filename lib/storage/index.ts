@@ -2,7 +2,7 @@ import { Contract, JsonRpcProvider } from 'ethers';
 import { STORAGE_ADDRESS, VIRTUAL_GROUP_ADDRESS, SP_ADDRESS, EMPTY_STRING_SHA256, HTTP_HEADER_CONTENT_SHA256, HTTP_HEADER_GNFD_DATE, HTTP_HEADER_GNFD_EXPIRY_TIMESTAMP } from '../constants';
 import { formatErrorMessage, getAuthorization } from '../utils'
 
-import type { AuthType, ECDSA, EDDSA, StorageProvider, UploadParams } from './types';
+import type { AuthType, ECDSA, EDDSA, StorageProvider, UploadParams, DownloadParams } from './types';
 import { ExceptionMessage } from './enums';
 import { spAbiMin, storageAbiMin, virtualGroupAbiMin } from './abi';
 
@@ -105,7 +105,8 @@ export class Storage {
     }
   }
 
-  async downloadFile(bucketName: string, objectName: string, authType: AuthType) {
+  async downloadFile(params: DownloadParams, authType: AuthType) {
+    const { bucketName, objectName } = params
     const endpoint = await this.getSpUrlByBucket(bucketName)
     const url = new URL(`${bucketName}/${objectName}`, endpoint)
 

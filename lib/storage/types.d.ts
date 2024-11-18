@@ -71,6 +71,11 @@ export interface UploadParams {
   }
 }
 
+export interface DownloadParams {
+  bucketName: string
+  objectName: string
+}
+
 export type ECDSA = {
   type: 'ECDSA';
   privateKey: string;
